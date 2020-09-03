@@ -1,17 +1,18 @@
 {% extends 'layouts/base.html' %}
 {% load static %}
+{% load i18n %}
 {% block body_block %}
 <header class="my_body">
     <div class="container">
         {% if item %}
         <div class="row align-items-center justify-content-center text-center col-12 my_title">
-            <h2 class="my_title">Recherche du produit : {{ item }}</h2>
+            <h2 class="my_title">{% trans "Searched product " %}{{ item }}</h2>
         </div>
         {% endif %}
         {% if search_return == "0" %}
         {# Undefined error during the search #}
         <div class="row align-items-center justify-content-center text-center col-12 my_title">
-            <h2>Erreur indéfinie lors de la recherche !</h2>
+            <h2>{% trans "Undefined error during the search !" %}</h2>
             <div class="row align-items-center justify-content-center text-center col-12">
                 <a href="{% url 'home_app:index' %}" class="btn btn-secondary " name="no">Index</a>
             </div>
@@ -19,9 +20,11 @@
         {% elif search_return == "4" %}
         {# Unauthenticated user is not authorized --> the 404 is not clear enough #}
             <div class="row align-items-center justify-content-center text-center col-12 my_title">
-                <h2>Erreur ! Vous devez être authentifié pour effectuer une recherche ! </h2>
-                <h5>Cliquer sur "Continuer" pour aller directement sur la page de connexion</h5>
-                <h5>ou sur "Index" pour retourner à la page d'acceuil</h5>
+            {% blocktrans %}
+                <h2> Error! You must be authenticated to search a product! </h2>
+                <h5> Click on "Continue" to go directly to the login page </h5>
+                <h5> or on "Index" to return to the home page </h5>
+            {% endblocktrans %}
             </div>
             <div class="row align-items-center justify-content-center text-center col-12">
                 <div class="col-6 ">
@@ -34,10 +37,18 @@
         {% elif search_return == "1" %}
         {# no product found #}
             <div class="row align-items-center justify-content-center text-center col-12 my_title">
+                {% comment %}
                 <p><h3>Erreur lors de la recherche ==> Aucun produit trouvé !</h3>
                 <h5>Voulez-vous que nous allions rechercher les données pour vous ?</h5>
                 <h5>Si vous cliquez sur oui, merci de recommencer votre recherche dans quelques minutes ?</h5></p>
                 <h5>Cliquer sur Index pour retourner à la page d'index ou sur Back pour retourner d'ou vous venez !</h5>
+                {%  endcomment %}
+                {% blocktrans %}
+                <p> <h3> Search error ==> No product found! </h3>
+                <h5> Do you want us to go find the data for you? </h5>
+                <h5> If you click on yes, please start your search again in a few minutes? </h5> </p>
+                <h5> Click on Index to return to the index page or on Back to return to where you came from! </h5>
+                {% endblocktrans %}
             </div>
             <div class="row align-items-center justify-content-center text-center col-12">
                 <div class="col-6 ">
@@ -53,10 +64,16 @@
         {% elif search_return == "2" %}
         {# several products found ! Choose one ! #}
         <div class="row align-items-center justify-content-center text-center col-12 my_title">
+        {% comment  %}
             <h3>La recherche a renvoyée plusieurs produits !</h3>
             <h5>Merci d'en selectionner un puis de valider afin que nous vous proposions
                 les meilleurs substituts.
             </h5>
+        {% endcomment %}
+        {%  blocktrans %}
+            <h3> The search returned more than one product! </h3>
+            <h5> Please select one then validate so that we can suggest the best substitutes.</h5>
+        {%  endblocktrans %}
         </div>
         <section class="col-12">
             <div class="row equal align-items-end">

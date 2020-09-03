@@ -1,5 +1,5 @@
 from django import forms
-
+from django.utils.translation import ugettext_lazy as _
 
 class SearchView(forms.Form):
     """
@@ -11,4 +11,4 @@ class SearchView(forms.Form):
     def __init__(self, *args, **kwargs):
         super(SearchView, self).__init__(*args, **kwargs)
         self.fields['items_to_search'].widget.attrs = {'id': "items_to_search",
-                                                       'placeholder': "Search - min 5 chars"}
+                                                       'placeholder': _("Search - min 5 chars")}

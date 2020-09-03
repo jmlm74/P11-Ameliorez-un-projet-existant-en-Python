@@ -1,13 +1,14 @@
 {# The footer part of the templates #}
 {% block footer %}
+    {% load i18n %}
     <footer class="bg-light py-5">
         <div class="container">
             <div class="row col-12 small text-center text-muted">
                 <div class="col-md-6 col-12">
-                    <a href="{% url 'home_app:mentions' %}">mentions legales</a>
+                    <a href="{% url 'home_app:mentions' %}">{% trans "Legal mentions" %}</a>
                 </div>
                 <div class="col-md-6 col-12">
-                    <a href="{% url 'home_app:index' %}#contact">Contactez-nous</a>
+                    <a href="{% url 'home_app:index' %}#contact">{% trans "Contact us" %}</a>
                 </div>
             </div>
         </div>

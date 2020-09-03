@@ -1,6 +1,7 @@
 from django.db import models
 from django_extensions.db.models import TimeStampedModel
 from django.db.utils import IntegrityError
+from django.utils.translation import ugettext_lazy as _
 
 from user_app import models as uam
 
@@ -15,12 +16,12 @@ class Category(TimeStampedModel):
     categories for a product (many to many relationship with the product table)
     nb_prod is to search the substitutes first in categories which have more products
     """
-    cname = models.CharField(max_length=150, verbose_name="category name", unique=True)
-    nb_prod = models.IntegerField(verbose_name="nbre produits", default=0)
+    cname = models.CharField(max_length=150, verbose_name=_("category name"), unique=True)
+    nb_prod = models.IntegerField(verbose_name=_("products number"), default=0)
 
     class Meta:
-        verbose_name = "Category"
-        verbose_name_plural = "Category"
+        verbose_name = _("Category")
+        verbose_name_plural = _("Categories")
 
     def __str__(self):
         return self.cname
@@ -30,11 +31,11 @@ class Store(TimeStampedModel):
     """
     stores for a product (many to many relationship with the product table)
     """
-    sname = models.CharField(max_length=150, verbose_name="Store name", unique=True)
+    sname = models.CharField(max_length=150, verbose_name=_("Store name"), unique=True)
 
     class Meta:
-        verbose_name = "Store"
-        verbose_name_plural = "Store"
+        verbose_name = _("Store")
+        verbose_name_plural = _("Stores")
 
     def __str__(self):
         return self.sname
@@ -44,11 +45,11 @@ class Brand(TimeStampedModel):
     """
     Brand for a product (on brand per product) (one to many - foreignkey - relationship with product)
     """
-    bname = models.CharField(max_length=150, verbose_name="Brand Product", unique=True)
+    bname = models.CharField(max_length=150, verbose_name=_("Brand Product"), unique=True)
 
     class Meta:
-        verbose_name = "Brand"
-        verbose_name_plural = "Brand"
+        verbose_name = _("Brand")
+        verbose_name_plural = _("Brands")
 
     def __str__(self):
         return self.bname
@@ -74,38 +75,38 @@ class Product(TimeStampedModel):
     """
 
     class nutrient_levels(models.TextChoices):
-        HIGH = "H", "Elevé"
-        MODERATE = "M", "Modéré"
-        LOW = "L", "Bas"
-        UNKNOWN = "U", "Inconnu"
+        HIGH = "H", _("High")
+        MODERATE = "M", _("Moderate")
+        LOW = "L", _("Low")
+        UNKNOWN = "U", _("Unknown")
 
-    pname = models.CharField(max_length=150, verbose_name="product name", unique=True)
-    code = models.CharField(max_length=20, verbose_name="Barcode", unique=True)
-    product_url = models.URLField(verbose_name="OpenFoodFact product URL")
-    nutriscore_score = models.SmallIntegerField(verbose_name="Score Nutriscore")
-    nutriscore_grade = models.CharField(max_length=1, verbose_name="Note nutriscore")
-    desc = models.TextField(verbose_name="Description")
-    photo_url = models.URLField(verbose_name="OpenFoodFact photo URL")
-    nb_scans = models.IntegerField(verbose_name="nombre de scans", default=0)
-    salt = models.CharField(max_length=1, verbose_name="Sel", choices=nutrient_levels.choices,
+    pname = models.CharField(max_length=150, verbose_name=_("Product name"), unique=True)
+    code = models.CharField(max_length=20, verbose_name=_("Barcode"), unique=True)
+    product_url = models.URLField(verbose_name=_("OpenFoodFact product URL"))
+    nutriscore_score = models.SmallIntegerField(verbose_name=_("Nutriscore score"))
+    nutriscore_grade = models.CharField(max_length=1, verbose_name=_("Nutriscore notation"))
+    desc = models.TextField(verbose_name=_("Description"))
+    photo_url = models.URLField(verbose_name=_("OpenFoodFact photo URL"))
+    nb_scans = models.IntegerField(verbose_name=_("Scans number"), default=0)
+    salt = models.CharField(max_length=1, verbose_name=_("Salt"), choices=nutrient_levels.choices,
                             default=nutrient_levels.UNKNOWN)
-    sugar = models.CharField(max_length=1, verbose_name="Sucres", choices=nutrient_levels.choices,
+    sugar = models.CharField(max_length=1, verbose_name=_("Sugar"), choices=nutrient_levels.choices,
                              default=nutrient_levels.UNKNOWN)
-    fat = models.CharField(max_length=1, verbose_name="Lipides", choices=nutrient_levels.choices,
+    fat = models.CharField(max_length=1, verbose_name=_("Fat"), choices=nutrient_levels.choices,
                            default=nutrient_levels.UNKNOWN)
-    saturated_fat = models.CharField(max_length=1, verbose_name="Acides gras satures", choices=nutrient_levels.choices,
+    saturated_fat = models.CharField(max_length=1, verbose_name=_("Saturated fat"), choices=nutrient_levels.choices,
                                      default=nutrient_levels.UNKNOWN)
 
-    brand = models.ForeignKey(Brand, on_delete=models.CASCADE, verbose_name="Product brand", related_name="products",
+    brand = models.ForeignKey(Brand, on_delete=models.CASCADE, verbose_name=_("Product brand"), related_name="products",
                               null=True)
-    store = models.ManyToManyField(Store, verbose_name="Product store", related_name="products")
-    category = models.ManyToManyField(Category, verbose_name="Product category", related_name="products")
+    store = models.ManyToManyField(Store, verbose_name=_("Product store"), related_name="products")
+    category = models.ManyToManyField(Category, verbose_name=_("Product category"), related_name="products")
     bookmark = models.ManyToManyField('Product', through='Bookmark', blank=True, symmetrical=False, default=None,
                                       related_name='products')
 
     class Meta:
-        verbose_name = "Product"
-        verbose_name_plural = "Product"
+        verbose_name = _("Product")
+        verbose_name_plural = _("Products")
         indexes = [
             models.Index(fields=['nutriscore_grade'], name='I_nutriscore_grade'),
         ]
@@ -161,12 +162,12 @@ class ProductsWish(TimeStampedModel):
         avoid the user to click several times on the "fetch" button and register the product
         more than 1. The insert catch the error !
     """
-    pwname = models.CharField(max_length=150, verbose_name="product whished by client")
-    indb = models.BooleanField(default=False, verbose_name="product in db")
+    pwname = models.CharField(max_length=150, verbose_name=_("product whished by client"))
+    indb = models.BooleanField(default=False, verbose_name=_("product in database"))
 
     class Meta:
-        verbose_name = "ProductsWish"
-        verbose_name_plural = "ProductsWish"
+        verbose_name = _("Products Wish")
+        verbose_name_plural = _("Products Wishes")
         constraints = [
             models.UniqueConstraint(fields=['pwname'], name='unique_pwname'),
         ]

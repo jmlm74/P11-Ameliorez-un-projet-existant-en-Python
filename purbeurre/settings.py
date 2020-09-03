@@ -32,6 +32,8 @@ STATIC_DIR = os.path.join(BASE_DIR, 'static')
 STATIC_DIR2 = BASE_DIR + '/static'
 # ASSETS_DIR = os.path.join(BASE_DIR, 'assets')
 MEDIA_DIR = os.path.join(BASE_DIR, 'media')
+LOCALE_PATHS = (os.path.join(BASE_DIR, 'locale'),)
+
 
 
 # Quick-start development settings - unsuitable for production
@@ -72,9 +74,12 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
 ]
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+   "django.template.context_processors.i18n",
+)
 
 ROOT_URLCONF = 'purbeurre.urls'
 
@@ -142,7 +147,7 @@ PASSWORD_HASHERS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
-LANGUAGE_CODE = 'fr'
+LANGUAGE_CODE = 'en-US'
 
 TIME_ZONE = 'Europe/Paris'
 
@@ -151,6 +156,13 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+gettext = lambda x: x
+
+LANGUAGES = (
+   ('fr', gettext('French')),
+   ('en', gettext('English')),
+)
 
 
 # Static files (CSS, JavaScript, Images)
@@ -176,6 +188,7 @@ if DEBUG:
         '127.0.0.1',
         # ...
     ]
+    MIDDLEWARE += ['debug_toolbar.middleware.DebugToolbarMiddleware']
 else:
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
     MIDDLEWARE += ['whitenoise.middleware.WhiteNoiseMiddleware']

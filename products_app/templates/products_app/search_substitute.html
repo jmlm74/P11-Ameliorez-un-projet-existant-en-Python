@@ -1,5 +1,6 @@
 {% extends 'layouts/base.html' %}
 {% load static %}
+{% load i18n %}
 {% block body_block %}
 {% static "" as baseUrl %}
 <div id="my_body">
@@ -51,16 +52,10 @@
             {% include 'layouts/partials/_paginator.html' with page_obj=substitutes %}
             {% else %}
                 <div class="col-md-4 col-12 ligne justify-content-center text-center">
-                    <h5>Aucun substitut !!!</h5>
+                    <h5>{% trans "No substitute found !!!" %}</h5>
                 </div>
             {%endif%}
         </section>
-        <!-- 
-        <hr />
-        <div class="row align-items-center justify-content-center text-center col-12">
-            <input type="button" class="btn btn-primary" value="Back" onClick="window.history.back();return false;" />
-        </div>
-        -->
         {% include 'layouts/partials/_back.html' %}
     </div>
 </div>

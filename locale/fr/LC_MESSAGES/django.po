@@ -1,0 +1,424 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-09-03 18:59+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: home_app/forms.py:14 templates/layouts/partials/_nav.html:22
+msgid "Search - min 5 chars"
+msgstr ""
+
+#: home_app/templates/home_app/layouts/home.html:11
+msgid " Fat, Yes but Quality"
+msgstr ""
+
+#: home_app/templates/home_app/layouts/home.html:22 products_app/views.py:32
+msgid "Search"
+msgstr ""
+
+#: home_app/templates/home_app/layouts/home.html:53
+msgid ""
+"\n"
+"                    <p>Pur Beurre is the initiative of two lovers of French "
+"gastronomy, Colette Tatou and Rémy,\n"
+"                        that you have certainly encountered in our excellent "
+"restaurant Ratatouille.</p>\n"
+"                    <p> <mark> Colette Tatou: </mark> \"We all love to eat, "
+"especially in France! Personally, a baguette\n"
+"                    fresh, good goat cheese and a good red wine are enough "
+"for me. Like everyone,\n"
+"                    I do my shopping at the supermarket. But little by "
+"little I realized, especially when\n"
+"                    we opened the restaurant, that I could replace the "
+"sanitized products that I had\n"
+"                    used to buying with good local products And often for "
+"the same price! \"</p>\n"
+"                    <p> <mark> Remy: </mark> \"For my part, I was already "
+"going to many stores because I like to go for a walk,\n"
+"                    especially in cellars and kitchens. I knew the contents "
+"of organic stores by heart\n"
+"                    (which I love) as well as the ingredients of all the "
+"foods sold. When Colette told me\n"
+"                    asked if she could replace her morning Nutella with a "
+"healthier food, I knew it all\n"
+"                    now where to find it. The idea of ​​Pur Beurre was born! "
+"\"</p>\n"
+"                    "
+msgstr ""
+"\n"
+"					<p>Pur Beurre est l'initiative de deux amoureux de la gastronomie française, Colette Tatou et Rémy,\n" 
+"                   que vous avez déjà certainement rencontrés dans notre excellent restaurant Ratatouille. <p>\n"
+"                   <p><mark>Colette Tatou :</mark> Nous aimons tous manger, surtout en France ! Personnellement, une baguette \n"
+"                   fraîche, du bon fromage de chèvre et un bon vin rouge me suffisent amplement. Comme tout le monde, \n"
+"                   je fais mes courses au supermarché. Mais petit à petit je me suis rendue compte, surtout lorsque \n"
+"                   nous avons ouvert le restaurant, que je pouvais remplacer les produits aseptisés que j'avais \n"
+"                   l'habitude d'acheter par de bons produits du terroir Et souvent pour le même prix </p>\n"
+"                   <p><mark>Remy :</mark> Pour ma part je me rendais déjà dans bien des magasins car j'aime beaucoup me balader, \n"
+"                   surtout dans les caves et les cuisines. Je connaissais par coeur le contenu des boutiques bio \n"
+"                   (dont je raffole) ainsi que les ingrédients de tous les aliments vendus. Lorsque Colette m'a \n"
+"                   demandé si elle pouvait remplacer son Nutella matinal par un aliment plus sain, je savais tout \n"
+"                   de suite où le trouver. L'idée de Pur Beurre était née !</p>\n"
+"	"
+
+#: home_app/templates/home_app/layouts/home.html:98
+msgid ""
+"\n"
+"\n"
+"                        "
+msgstr ""
+
+#: home_app/templates/home_app/layouts/mentions.html:14
+msgid "Icones"
+msgstr "Icons"
+
+#: home_app/templates/home_app/layouts/mentions.html:15
+msgid "Icones de"
+msgstr "Icons from"
+
+#: home_app/templates/home_app/layouts/mentions.html:20
+msgid "Photos"
+msgstr "Pictures"
+
+#: home_app/templates/home_app/layouts/mentions.html:21
+#: home_app/templates/home_app/layouts/mentions.html:23
+#: home_app/templates/home_app/layouts/mentions.html:25
+msgid "réalisée par"
+msgstr "made by"
+
+#: home_app/templates/home_app/layouts/mentions.html:31
+msgid "Thème"
+msgstr "Theme"
+
+#: home_app/templates/home_app/layouts/mentions.html:32
+msgid "Adapté du thème"
+msgstr "From theme"
+
+#: home_app/templates/home_app/layouts/mentions.html:38
+msgid "Hébergement"
+msgstr "Web Hosting"
+
+#: home_app/templates/home_app/layouts/mentions.html:44
+msgid "Développement"
+msgstr "Development"
+
+#: products_app/models.py:19
+msgid "category name"
+msgstr "Categorie"
+
+#: products_app/models.py:20
+msgid "products number"
+msgstr "Nombre de produits"
+
+#: products_app/models.py:23
+msgid "Category"
+msgstr "Category"
+
+#: products_app/models.py:24
+msgid "Categories"
+msgstr "Categories"
+
+#: products_app/models.py:34
+msgid "Store name"
+msgstr "Magasin"
+
+#: products_app/models.py:37
+msgid "Store"
+msgstr "Magasin"
+
+#: products_app/models.py:38
+msgid "Stores"
+msgstr "Magasins"
+
+#: products_app/models.py:48
+msgid "Brand Product"
+msgstr "Marque du produit"
+
+#: products_app/models.py:51
+msgid "Brand"
+msgstr "Marque"
+
+#: products_app/models.py:52
+msgid "Brands"
+msgstr "Marques"
+
+#: products_app/models.py:78
+msgid "High"
+msgstr "Elevé"
+
+#: products_app/models.py:79
+msgid "Moderate"
+msgstr "Moyen"
+
+#: products_app/models.py:80
+msgid "Low"
+msgstr "Bas"
+
+#: products_app/models.py:81
+msgid "Unknown"
+msgstr "Inconnu"
+
+#: products_app/models.py:83
+msgid "Product name"
+msgstr "Nom du produit"
+
+#: products_app/models.py:84
+msgid "Barcode"
+msgstr "Code barre"
+
+#: products_app/models.py:85
+msgid "OpenFoodFact product URL"
+msgstr "URL OpenFoodfact du produit"
+
+#: products_app/models.py:86
+msgid "Nutriscore score"
+msgstr "Score Nutriscore"
+
+#: products_app/models.py:87
+msgid "Nutriscore notation"
+msgstr "Nutriscore grade"
+
+#: products_app/models.py:88
+msgid "Description"
+msgstr "Description"
+
+#: products_app/models.py:89
+msgid "OpenFoodFact photo URL"
+msgstr "URL openFoodFact photo"
+
+#: products_app/models.py:90
+msgid "Scans number"
+msgstr "Nombre de scans"
+
+#: products_app/models.py:91
+msgid "Salt"
+msgstr "Sel"
+
+#: products_app/models.py:93
+msgid "Sugar"
+msgstr "Sucre"
+
+#: products_app/models.py:95
+msgid "Fat"
+msgstr "Graisse"
+
+#: products_app/models.py:97
+msgid "Saturated fat"
+msgstr "Graisse saturée"
+
+#: products_app/models.py:100
+msgid "Product brand"
+msgstr "Marque du produit"
+
+#: products_app/models.py:102
+msgid "Product store"
+msgstr "Magasin"
+
+#: products_app/models.py:103
+msgid "Product category"
+msgstr "Catégorie du produit"
+
+#: products_app/models.py:108
+msgid "Product"
+msgstr "Produit"
+
+#: products_app/models.py:109
+msgid "Products"
+msgstr "Produits"
+
+#: products_app/models.py:165
+msgid "product whished by client"
+msgstr "Produit demandé par le client"
+
+#: products_app/models.py:166
+msgid "product in database"
+msgstr "Produit dans la base de données"
+
+#: products_app/models.py:169
+msgid "Products Wish"
+msgstr "Produits demandés"
+
+#: products_app/models.py:170
+msgid "Products Wishes"
+msgstr "Produits demandés"
+
+#: products_app/templates/products_app/initdb.html:14
+msgid ""
+"\n"
+"            <p> Warning: This operation will erase <strong> ALL </strong> "
+"the data from the database including\n"
+"            the bookmarks !!!! </p>\n"
+"            <p> This will bring you back to the index page and will take "
+"about 5 to 10 minutes! </p>\n"
+"            "
+msgstr ""
+"\n"
+"            <p> Attention: Cette opération va écraser <strong> TOUTES </strong> "
+"les données de la pbase de données y compris les favoris !!!! </p>\n"
+"            <p> Cela vous renverra sur la page nd'accueil et durera 5 à 10 mn !</p>\n"
+"	"
+
+#: products_app/templates/products_app/initdb.html:20
+msgid ""
+"To continue click on 'Continue' or click on 'Index' to go back to the Index "
+"page"
+msgstr ""
+"Poru continuer cliquez sur 'Continuer' ou cliquer sur 'Index' pour retourner sur la page d'accueil"
+
+#: products_app/templates/products_app/initdb.html:23
+msgid "Continue"
+msgstr "Continuer"
+
+#: products_app/templates/products_app/list_bookmarks.html:10
+msgid "List of all bookmarks for "
+msgstr "Liste des favoris pour"
+
+#: products_app/templates/products_app/list_bookmarks.html:18
+msgid "PRODUCT(S)"
+msgstr "PRODUITS(S)"
+
+#: products_app/templates/products_app/list_bookmarks.html:19
+msgid "SUBSTITUTE(S)"
+msgstr "SUBSTITUT(S)"
+
+#: products_app/templates/products_app/list_bookmarks.html:60
+msgid "No bookmmark !!!"
+msgstr "Pas de favori !!!"
+
+#: products_app/templates/products_app/search.html:9
+msgid "Searched product "
+msgstr "Produit recherché"
+
+#: products_app/templates/products_app/search.html:15
+msgid "Undefined error during the search !"
+msgstr "Erreur indéfinie pendant la recherche"
+
+#: products_app/templates/products_app/search.html:23
+msgid ""
+"\n"
+"                <h2> Error! You must be authenticated to search a product! </"
+"h2>\n"
+"                <h5> Click on \"Continue\" to go directly to the login page "
+"</h5>\n"
+"                <h5> or on \"Index\" to return to the home page </h5>\n"
+"            "
+msgstr ""
+"\n"
+"                <h2>Errur !! Vous devez être connecté pour rechercher un produit</"
+"h2>\n"
+"                <h5> Cliquez sur \"Continuer\" pour aller directement sur la page de connexion "
+"</h5>\n"
+"                <h5> ou sur \"Index\" pour retourner sur la page d'accueil </h5>\n"
+"            "
+
+#: products_app/templates/products_app/search.html:47
+msgid ""
+"\n"
+"                <p> <h3> Search error ==> No product found! </h3>\n"
+"                <h5> Do you want us to go find the data for you? </h5>\n"
+"                <h5> If you click on yes, please start your search again in "
+"a few minutes? </h5> </p>\n"
+"                <h5> Click on Index to return to the index page or on Back "
+"to return to where you came from! </h5>\n"
+"                "
+msgstr ""
+"\n"
+"                <p> <h3> Erreur durant la recherche ==> aucun produit trouvé! </h3>\n"
+"                <h5> Voulez-vous que nous allions chercher les produits pour vous ? </h5>\n"
+"                <h5> Si vous cliquez sur 'oui', Merci de recommencer votre recherche dans quelques minutes ! </h5> </p>\n"
+"                <h5> Cliquez sur 'Index' pour retourner à la page d'accueil ou sur retour ! </h5>\n"
+"				"   
+
+#: products_app/templates/products_app/search.html:75
+msgid ""
+"\n"
+"            <h3> The search returned more than one product! </h3>\n"
+"            <h5> Please select one then validate so that we can suggest the "
+"best substitutes.</h5>\n"
+"        "
+msgstr ""
+"\n"
+"            <h3> La recherche a retourné plus de un produit! </h3>\n"
+"            <h5> Merci d'en selectionner un afin que nous puissions vous proposer les meilleurs substituts.</h5>\n"
+"        "
+
+#: products_app/templates/products_app/search_substitute.html:55
+msgid "No substitute found !!!"
+msgstr "Aucun substitut !!!"
+
+#: products_app/views.py:130
+msgid "Select substitute"
+msgstr "Selectionnez un substitut"
+
+#: products_app/views.py:191
+msgid "Product Detail"
+msgstr "Détail produit"
+
+#: products_app/views.py:242
+msgid "List Bookmarks"
+msgstr "Liste favoris"
+
+#: purbeurre/settings.py:164
+msgid "French"
+msgstr "Français"
+
+#: purbeurre/settings.py:165
+msgid "English"
+msgstr "Anglais"
+
+#: templates/errors/errors.html:10
+msgid "OUPS ! Something went wrong..."
+msgstr "OUPS ! Quelque chose s'est mal passé !"
+
+#: templates/errors/errors.html:18
+msgid "Click her to go back !"
+msgstr "Cliquez ici pour revenir en arrière"
+
+#: templates/layouts/partials/_footer.html:8
+msgid "mentions legales"
+msgstr "legal mentions"
+
+#: templates/layouts/partials/_footer.html:11
+msgid "Contactez-nous"
+msgstr "Contact us"
+
+#: templates/layouts/partials/_nav.html:28
+msgid "Bookmarks"
+msgstr "Favoris"
+
+#: templates/layouts/partials/_nav.html:32
+msgid "Logout"
+msgstr "Déconnexion"
+
+#: templates/layouts/partials/_nav.html:37
+msgid "User management"
+msgstr "Gestion utilisateur"
+
+#: templates/layouts/partials/_paginator.html:6
+msgid "first"
+msgstr "première"
+
+#: templates/layouts/partials/_paginator.html:7
+msgid "previous"
+msgstr "Avant"
+
+#: templates/layouts/partials/_paginator.html:15
+msgid "next"
+msgstr "Après"
+
+#: templates/layouts/partials/_paginator.html:16
+msgid "last"
+msgstr "Dernière"

@@ -4,6 +4,7 @@
         carrot and exit icons are displayed only if the user is connected
 {% endcomment %}
 {% load static %}
+{% load i18n %}
 {% block navbar %}
 
     <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
@@ -18,21 +19,22 @@
                 <ul class="navbar-nav ml-auto my-2 my-lg-0">
                     <form class="form-inline my-2 my-lg-0" id="searchform_nav" method="POST" action="{% url 'products_app:search' %}">
                         {% csrf_token %}
-                        <input class="form-control mr-sm-2" minlength="5" maxlength="50" name="search_menu" id="search_menu" type="search" placeholder="Search - min 5 chars" aria-label="search_menu">
+                        {% translate "Search - min 5 chars" as placeholder  %}
+                        <input class="form-control mr-sm-2" minlength="5" maxlength="50" name="search_menu" id="search_menu" type="search" placeholder="{{ placeholder }}" aria-label="search_menu">
                     </form>
                     {% if user.is_authenticated %}
                     <div id="carrot">
                         <li class="nav-item carrot"><a href="{% url 'products_app:list_bookmarks' %}"><i class="fas fa-carrot fa-2x"></i></a></li>
-                        <span class="text">Bookmarks</span>
+                        <span class="text">{% trans "Bookmarks" %}</span>
                     </div>
                     <div id="logout">
                         <li class="nav-item logout"><a href="{% url 'user_app:ulogout' %}"><i class="fas fa-sign-out-alt fa-2x"></i></a></li>
-                        <span class="text">Logout</span>
+                        <span class="text">{% trans "Logout" %}</span>
                     </div>
                     {% endif %}
                     <div id="perso2">
                     <li class="nav-item perso2"><a href="{% url 'user_app:user' %}"><img src="{%static 'img/perso2.png' %}" alt="mon compte"></a></li>
-                    <p class="text">Gestion utilisateur</p>
+                    <p class="text">{%  trans "User management" %}</p>
                     </div>
                 </ul>
             </div>

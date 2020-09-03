@@ -9,6 +9,8 @@ from django.utils.decorators import method_decorator
 import json
 from django.db.utils import IntegrityError
 import threading
+from django.utils.translation import ugettext as _
+# from django.utils.translation import ungettext # for plural if needed
 
 
 from products_app.tasks import init_db
@@ -27,7 +29,7 @@ def search_view(request):
             substitute page with this product
         - 1 product found --> just go to the substitute page with the found product
     """
-    context = {'title': 'Search'}
+    context = {'title': _('Search')}
     if not request.user.is_authenticated:
         # user not authenticated --> not a 404 but a message !
         context['search_return'] = "4"
@@ -125,7 +127,7 @@ def search_substitute_view(request):
             page_obj = paginate(substitutes, page_number)
             context['substitutes'] = page_obj
             context['list_bookmarks'] = list_code_bookmarks
-        context['title'] = "Select Substitute"
+        context['title'] = _("Select substitute")
     return render(request, "products_app/search_substitute.html", context=context)
 
 @csrf_exempt
@@ -186,7 +188,7 @@ class ProductDetailView(DetailView):
         self.object = self.get_object()
         context = self.get_context_data()
         context['nutrient_levels'] = self.object.get_nutrient_levels
-        context['title'] = 'Product Detail'
+        context['title'] = _('Product Detail')
         return self.render_to_response(context=context)
 
 
@@ -237,7 +239,7 @@ class BookmarkListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'List Bookmarks'
+        context['title'] = _('List Bookmarks')
         return context
 
 

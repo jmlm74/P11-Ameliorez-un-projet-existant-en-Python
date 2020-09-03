@@ -1,17 +1,25 @@
 {% extends 'layouts/base.html' %}
 {% load static %}
+{% load i18n %}
 {% block body_block %}
 <header class="my_body">
     <div class="container">
         <div class="alert alert-danger" role="alert">
+            {%  comment %}
             <p>Attention : Cette opération va effacer <strong>TOUTES</strong> les données de la base y compris
             les bookmarks !!!! </p>
             <p>Cette opération vous ramenera à la page d'index et durera environ 5 à 10mn !</p>
+            {% endcomment %}
+            {%  blocktrans %}
+            <p> Warning: This operation will erase <strong> ALL </strong> the data from the database including
+            the bookmarks !!!! </p>
+            <p> This will bring you back to the index page and will take about 5 to 10 minutes! </p>
+            {%  endblocktrans %}
         </div>
-        <h5>Pour continuer : Cliquer sur "Continuer" sinon sur "Index"</h5>
+        <h5>{%  trans "To continue click on 'Continue' or click on 'Index' to go back to the Index page" %}</h5>
         <form action="" method="post">
             {% csrf_token %}
-            <input type="submit" value="Continuer" class="btn btn-danger">
+            <input type="submit" value={% trans "Continue" %} class="btn btn-danger">
         </form>
         <hr />
         <div class="row justify-content-center">
