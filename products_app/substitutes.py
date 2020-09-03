@@ -15,6 +15,8 @@ def search_substitute(prod_selected):
     """
     ns = prod_selected.nutriscore_score
     # get the categories --> return a query set
+    # change for testing bug in P11
+    # cats = Category.objects.get(products__pname=prod_selected.pname).order_by('-nb_prod')
     cats = Category.objects.filter(products__pname=prod_selected.pname).order_by('-nb_prod')
     # get all the products which nutriscore_score less than our product
     prods = Product.objects.filter(nutriscore_score__lte=ns).exclude(pname=prod_selected.pname)

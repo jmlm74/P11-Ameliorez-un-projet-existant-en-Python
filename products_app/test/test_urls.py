@@ -3,7 +3,7 @@ from django.urls import reverse, resolve
 import inspect
 
 from products_app.views import (search_view, search_substitute_view, ProductDetailView,
-                                save_bookmark, BookmarkListView, InitDBView)
+                                save_remove_bookmark, BookmarkListView, InitDBView)
 
 
 class TestUrls(TestCase):
@@ -42,10 +42,10 @@ class TestUrls(TestCase):
             test reverse and resolve for search
         """
         print(inspect.currentframe().f_code.co_name)
-        path = reverse('products_app:save_bookmark')
-        self.assertEquals(path, '/products_app/save_bookmark/')
-        self.assertEquals(resolve(path).view_name, 'products_app:save_bookmark')
-        self.assertEquals(resolve(path).func, save_bookmark)
+        path = reverse('products_app:save_remove_bookmark')
+        self.assertEquals(path, '/products_app/save_remove_bookmark/')
+        self.assertEquals(resolve(path).view_name, 'products_app:save_remove_bookmark')
+        self.assertEquals(resolve(path).func, save_remove_bookmark)
 
     def test_url_list_bookmarks_is_ok(self):
         """

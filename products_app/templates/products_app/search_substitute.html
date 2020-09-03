@@ -35,9 +35,6 @@
                                     alt="image {{subst.pname}}"/>
                             </div>
                                 <div id="floppy_save">
-                                    <!--
-                                <a class="floppy" href="{% url 'user_app:ulogout' %}"><i id="floppy-{{subst.code}}" class="fa fa-save" aria-hidden="true"></i>
-                                -->
                                 {% if subst.code in list_bookmarks %}
                                     <i id="{{subst.code}}-{{chk.code}}"  class="fa fa-save floppy-red" aria-hidden="true"></i> 
                                 {% else %}

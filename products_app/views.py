@@ -22,7 +22,7 @@ def search_view(request):
         Display 1st resul of product search
         depends on search result :
         - Error --> just display the message
-        - no product found --> ask to fetch data via openfoodfacts API en rertry the search later
+        - no product found --> ask to fetch data via openfoodfacts API en retry the search later
         - more than one product found --> display all the product to choose one and the go to the
             substitute page with this product
         - 1 product found --> just go to the substitute page with the found product
@@ -98,7 +98,7 @@ def search_view(request):
 
 def search_substitute_view(request):
     """
-    fonction based view to select a substitute
+    function based view to select a substitute
     the product is in the request
 
     always with the get method
@@ -128,15 +128,14 @@ def search_substitute_view(request):
         context['title'] = "Select Substitute"
     return render(request, "products_app/search_substitute.html", context=context)
 
-
 @csrf_exempt
-def save_bookmark(request):
+def save_remove_bookmark(request):
     """
-    Save a bookmark in database.
-    called by Ajax but with POST (security reason). The decorator csrf_exempt is to avoid to generate
+    Remove or add a bookmark in database depends on data['action']
+    called by Ajax but with POST (security reason). The decorator csrf_exempt is to avoid to generate_
     a csrf token in the javascript
     args : request
-        the products (origin and bookmarks ) are in the request in json format
+        the products (origin and bookmarks ) and the action (add or remove) are in the request in json format
     returns : OK or error in json format
     """
     if request.method == 'POST':
@@ -144,12 +143,17 @@ def save_bookmark(request):
         user = request.user.username
         prod = str(request_data['subst'])
         subst = str(request_data['prod'])
+        action = str(request_data['action'])
         try:
-            Bookmark.create_bookmark(user, subst, prod)
+            if action == "remove":
+                Bookmark.remove_bookmark(user, subst, prod)
+            else:
+                Bookmark.create_bookmark(user, subst, prod)
             data = {'data': 'OK'}
         except:
             data = {'data': 'ERREUR'}
     return JsonResponse(data)
+
 
 
 class ProductDetailView(DetailView):
@@ -194,7 +198,7 @@ class InitDBView(TemplateView):
         - Protected by the class decorator
     - post method if OK --> launch the InitDB
         - The initDB task is launch as a celery task "(delay) method)" : it runs in background
-        - Return immediatly to the homepage without waiting the end of InitDB
+        - Return immediately to the homepage without waiting the end of InitDB
     """
     template_name = "products_app/initdb.html"
     context_object_name = 'init'

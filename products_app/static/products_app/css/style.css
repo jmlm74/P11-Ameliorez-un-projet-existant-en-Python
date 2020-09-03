@@ -16,7 +16,7 @@
 .floppy-green{
   color: green;
 }
-.floppy-green:hover{
+.fa-save:hover{
   opacity: 0.7;
   cursor: pointer;
 }

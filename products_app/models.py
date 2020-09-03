@@ -213,3 +213,15 @@ class Bookmark(TimeStampedModel):
         except IntegrityError:
             pass
         return
+
+    @classmethod
+    def remove_bookmark(cls, user, prod, subst):
+        subst = Product.objects.get(code=str(subst))
+        user = uam.User.objects.get(username=user)
+        prod = Product.objects.get(code=str(prod))
+        try:
+            old_bookmark = Bookmark.objects.get(buser=user, product=prod, substitute=subst)
+            old_bookmark.delete()
+        except IntegrityError:
+            pass
+        return

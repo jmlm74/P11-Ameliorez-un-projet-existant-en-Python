@@ -156,7 +156,7 @@ class TestViewSearchSubstitute(TransactionTestCase):
         session.save()
         response = self.client.get(reverse("products_app:search_substitute"))
         self.assertEquals(response.status_code, 200)
-        self.assertContains(response, 'class="fa fa-save" aria-hidden="true"></i>')
+        self.assertContains(response, 'class="fa fa-save floppy-green" aria-hidden="true"></i>')
         url_search = (reverse('products_app:search_substitute') + '.html')[1:]
         self.assertTemplateUsed(response, url_search)
 
@@ -175,14 +175,14 @@ class TestViewSearchSubstitute(TransactionTestCase):
         self.assertTemplateUsed(response, url_search)
 
 
-class TestViewSaveBookmark(TransactionTestCase):
+class TestViewSaveRemoveBookmark(TransactionTestCase):
     """
-    Test save bookmark view (Ajax)
+    Test save and remove bookmark view (Ajax)
     """
     def setUp(self):
-        super(TestViewSaveBookmark, self).setUpClass()
+        super(TestViewSaveRemoveBookmark, self).setUpClass()
         # create 2 products
-        mixer.cycle(2).blend(Product, pname=mixer.sequence('prod{0}'),
+        mixer.cycle(3).blend(Product, pname=mixer.sequence('prod{0}'),
                              code=mixer.sequence('{0}'),
                              nutriscore_score=25,
                              nutriscore_grade="e",
@@ -201,14 +201,31 @@ class TestViewSaveBookmark(TransactionTestCase):
         user.save()
         self.user = user
         self.client.login(username='foobar', password='foobar')
+        json_data = json.dumps({'action': 'add', 'subst': '2', 'prod': '1'})
+        response = self.client.post(reverse('products_app:save_remove_bookmark'),
+                                    json_data,
+                                    content_type="application/json")
 
     def test_view_save_bookmark_OK(self):
         """
         Verify the save bookmark returns OK if OK !!!!
         """
         print(inspect.currentframe().f_code.co_name)
-        json_data = json.dumps({'subst': '1', 'prod': '0'})
-        response = self.client.post(reverse('products_app:save_bookmark'),
+        json_data = json.dumps({'action': 'add', 'subst': '1', 'prod': '0'})
+        response = self.client.post(reverse('products_app:save_remove_bookmark'),
+                                    json_data,
+                                    content_type="application/json")
+        response_data = response.json()
+        self.assertEquals(response_data['data'], 'OK')
+        self.assertEquals(response.status_code, 200)
+
+    def test_view_remove_bookmark_OK(self):
+        """
+        Verify the remove bookmark returns OK if OK !!!!
+        """
+        print(inspect.currentframe().f_code.co_name)
+        json_data = json.dumps({'action': 'remove', 'subst': '2', 'prod': '1'})
+        response = self.client.post(reverse('products_app:save_remove_bookmark'),
                                     json_data,
                                     content_type="application/json")
         response_data = response.json()
@@ -221,8 +238,8 @@ class TestViewSaveBookmark(TransactionTestCase):
         """
         print(inspect.currentframe().f_code.co_name)
         # subst does not exists
-        json_data = json.dumps({'subst': '5', 'prod': '0'})
-        response = self.client.post(reverse('products_app:save_bookmark'),
+        json_data = json.dumps({'action': 'add', 'subst': '5', 'prod': '0'})
+        response = self.client.post(reverse('products_app:save_remove_bookmark'),
                                     json_data,
                                     content_type="application/json")
         response_data = response.json()
@@ -337,8 +354,8 @@ class TestBookmarkListView(TransactionTestCase):
         """
         print(inspect.currentframe().f_code.co_name)
         # create bookmark
-        json_data = json.dumps({'subst': '1', 'prod': '0'})
-        response = self.client.post(reverse('products_app:save_bookmark'),
+        json_data = json.dumps({'action': 'add', 'subst': '1', 'prod': '0'})
+        response = self.client.post(reverse('products_app:save_remove_bookmark'),
                                     json_data,
                                     content_type="application/json")
         response = self.client.get(reverse('products_app:list_bookmarks'))
