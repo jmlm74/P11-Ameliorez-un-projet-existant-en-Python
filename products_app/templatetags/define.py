@@ -17,3 +17,4 @@ def define(val=None):
 @register.simple_tag
 def plus(var, value):
     return int(var) + int(value)
+

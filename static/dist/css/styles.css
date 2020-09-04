@@ -10245,6 +10245,11 @@ header.masthead h1 {
   color: #86ebe6;
 }
 
+#language {
+  margin-top: 50px;
+  margin-left: 10px;
+}
+
 #logout .text,
 #carrot .text {
   position: relative;

@@ -12,5 +12,6 @@ urlpatterns = [
     path('', hav.index, name='index'),
     path('index/', hav.index, name='index'),
     path('mentions/', hav.mentions, name='mentions'),
-    path('test_error',hav.test_error, name='test_error')
+    path('test_error',hav.test_error, name='test_error'),
+    path('set_language/', hav.set_language, name='set_language'),
 ]

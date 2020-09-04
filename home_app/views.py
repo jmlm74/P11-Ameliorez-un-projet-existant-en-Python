@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 import json
 
 from home_app import forms
@@ -10,6 +11,10 @@ def index(request):
     """
     the homepage view --> form SearchView
     """
+    try:
+        request.session['language']
+    except KeyError:
+        request.session['language'] = 'FR'
     if request.method == 'POST':
         searchform = forms.SearchView(request.POST)
         if searchform.is_valid():
@@ -41,3 +46,12 @@ def autocomplete_search(request):
 
 def test_error(request):
     return 1/0
+
+@csrf_exempt
+def set_language(request):
+    if request.method == 'POST':
+        request_data = json.loads(request.read().decode('utf-8'))
+        language = str(request_data['language'])
+        request.session['language'] = language
+        data = {'data': 'OK'}
+    return JsonResponse(data)

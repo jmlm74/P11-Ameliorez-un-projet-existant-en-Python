@@ -75,4 +75,31 @@
     }
   });
 
+  // choose language
+  $('.lang').click(function(e){
+    let data = {};
+    if ($(this).hasClass('FR')){
+      data['language'] = "FR";
+    } else {
+      data['language'] = "UK";
+    }
+
+    data = JSON.stringify(data);
+    SendAjax('POST','/home_app/set_language/',data);
+
+  });
+
+  let SendAjax = function(type="POST" ,url, data, datatype='json', contenttype='application/json' ){
+    /*
+    Send ajax request to server
+    */
+    return $.ajax({
+        type: type,
+        url: url,
+        data: data,
+        dataType: datatype,
+        contentType: contenttype,
+    })
+};
+
 })(jQuery); // End of use strict
