@@ -24,11 +24,14 @@ def index(request):
             print(searchform.errors)
     else:
         searchform = forms.SearchView()
-    context = {'searchform': searchform}
+    context = {'searchform': searchform,
+               'title': 'home_app-home-title',
+               }
     return render(request, 'home_app/layouts/home.html/', context)
 
 
 def mentions(request):
+    context = {'title': 'home_app-mentions-title', }
     return render(request, "home_app/layouts/mentions.html")
 
 

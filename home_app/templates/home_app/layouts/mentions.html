@@ -1,46 +1,47 @@
 {# Legal mentions template #}
 {% extends 'layouts/base.html' %}
 {% load static %}
+{% load dis_play %}
 {% block title %}Pur Beurre | Mentions Légales{% endblock %}
 {% block body_block %}
 <header class="masthead my_header">
     <div class="container h-120">
         <div class="col-lg-12 align-self-end row h-20 align-items-center justify-content-center text-center">
-            <h1 class="text-white font-weight-light">Mentions légales</h1>
+            <h1 class="text-white font-weight-light">{% dis_play "home_app-mentions-text1" %}</h1>
         </div>
         <div class="row text-white">
             <ul>
-                <h4>Icones</h4>
-                <li>Icones de <a href="https://fontawesome.com/">Awsome Fonts</a></li>
+                <h4>{% dis_play "home_app-mentions-text2" %}</h4>
+                <li>{% dis_play "home_app-mentions-text3" %} <a href="https://fontawesome.com/">Awsome Fonts</a></li>
             </ul>
         </div>
         <div class="row text-white-75">
             <ul>
-                <h4>Photos</h4>
-                <li>"Cookies on bowl" réalisée par <a href="https://unsplash.com/@olenka_kotyk" target="_blank">
+                <h4>{% dis_play "home_app-mentions-text4" %}</h4>
+                <li>"Cookies on bowl" {% dis_play "home_app-mentions-text5" %} <a href="https://unsplash.com/@olenka_kotyk" target="_blank">
                     Olenka Kotyk</a></li>
-                <li>"Pastry on tray beside glass mug" réalisée par <a href="https://unsplash.com/@kawin" target="_blank">
+                <li>"Pastry on tray beside glass mug" {% dis_play "home_app-mentions-text5" %} <a href="https://unsplash.com/@kawin" target="_blank">
                     Kawin Harasai</a></li>
-                <li>"Brown cookies" réalisée par <a href="https://unsplash.com/@gregjeanneau" target="_blank">
+                <li>"Brown cookies" {% dis_play "home_app-mentions-text5" %} <a href="https://unsplash.com/@gregjeanneau" target="_blank">
                     Greg Jeanneau</a></li>
             </ul>
         </div>
         <div class="row text-white-75">
             <ul>
-                <h4>Theme</h4>
-                <li>Adapté du thème <a href="https://blackrockdigital.github.io/startbootstrap-creative/" target="_blank">
+                <h4>{% dis_play "home_app-mentions-text6" %}</h4>
+                <li>{% dis_play "home_app-mentions-text7" %} <a href="https://blackrockdigital.github.io/startbootstrap-creative/" target="_blank">
                     Start Bootstrap Creative theme</a> </li>
             </ul>
         </div>
         <div class="row text-white-75">
             <ul>
-                <h4>Hébergement</h4>
+                <h4>{% dis_play "home_app-mentions-text8" %}</h4>
                 <li><a href="https://www.heroku.com" target="_blank">Heroku</a></li>
             </ul>
         </div>
         <div class="row text-white-75">
             <ul>
-                <h4>Développement</h4>
+                <h4>{% dis_play "home_app-mentions-text9" %}</h4>
                 <li>JMLM - <a href="MAILTO:jmlm74@gmail.com">jmlm74@gmail.com</a></li>
                 <ul>
                     <li>5 rue du faubourg St-honoré</li>

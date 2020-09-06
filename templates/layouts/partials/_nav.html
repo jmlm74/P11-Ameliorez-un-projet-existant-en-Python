@@ -4,13 +4,14 @@
         carrot and exit icons are displayed only if the user is connected
 {% endcomment %}
 {% load static %}
+{% load dis_play %}
 {% block navbar %}
 
     <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
         <div class="container">
             <div id="logo" class="d-none d-sm-block">
                 <a href="{% url 'index' %}"><img src="{% static 'img/logo_pur_beurre2.png' %}" alt="Pur Beurre"></a>
-                <p class="text">Homepage</p>
+                <p class="text">{%  dis_play "purbeurre-nav-text1" %}</p>
             </div>
             <h2><a class="js-scroll-trigger" href="{% url 'index' %}">Pur Beurre</a></h2>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
@@ -23,25 +24,25 @@
                     {% if user.is_authenticated %}
                     <div id="carrot">
                         <li class="nav-item carrot"><a href="{% url 'products_app:list_bookmarks' %}"><i class="fas fa-carrot fa-2x"></i></a></li>
-                        <span class="text">Bookmarks</span>
+                        <span class="text">{%  dis_play "purbeurre-nav-text2" %}</span>
                     </div>
                     <div id="logout">
                         <li class="nav-item logout"><a href="{% url 'user_app:ulogout' %}"><i class="fas fa-sign-out-alt fa-2x"></i></a></li>
-                        <span class="text">Logout</span>
+                        <span class="text">{%  dis_play "purbeurre-nav-text3" %}</span>
                     </div>
                     {% endif %}
                     <div id="perso2">
                     <li class="nav-item perso2"><a href="{% url 'user_app:user' %}"><img src="{%static 'img/perso2.png' %}" alt="mon compte"></a></li>
-                    <p class="text">Gestion utilisateur</p>
+                    <p class="text">{%  dis_play "purbeurre-nav-text4" %}</p>
                     </div>
                     <div id="language">
                         <li class="nav-item lang FR">
-                            <a href=""><img src="{% static 'img/FRmini.jpg' %}" alt="Francais"></a>
+                            <a href="{% url 'index' %}"><img src="{% static 'img/FRmini.jpg' %}" alt="Francais"></a>
                         </li>
                     </div>
                     <div id="language">
                         <li class="nav-item lang UK">
-                            <a href=""><img src="{% static 'img/UKmini.jpg' %}" alt="English"></a>
+                            <a href="{% url 'index' %}"><img src="{% static 'img/UKmini.jpg' %}" alt="English"></a>
                         </li>
                     </div>
                 </ul>
