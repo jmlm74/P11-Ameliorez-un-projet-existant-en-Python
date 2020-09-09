@@ -1,0 +1,12 @@
+{% load  dis_play %}
+{% block user_nav %}
+            <div class="col-2 text-left">
+                <nav>
+                    <ul>
+                        <li><a href="{% url "user_app:user_create" %}">{% dis_play "user_app-nav-text1" %}</a></li><br />
+                        <li><a href="{% url "user_app:change_password" %}">{% dis_play "user_app-nav-text2" %}</a></li><br />
+                        <li><a href="{% url "user_app:reset_password" %}">{% dis_play "user_app-nav-text3" %}</a></li>
+                    </ul>
+                </nav>
+            </div>
+{% endblock user_nav %}

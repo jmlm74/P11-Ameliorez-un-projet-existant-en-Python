@@ -1,0 +1,61 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% load dis_play %}
+
+{% block body_block %}
+<header class="my_body">
+    <div class="container">
+        <div class="row align-items-center justify-content-center text-center col-12">
+            <h2 class="my_title">{% dis_play "user_app-login-title" %}</h2>
+        </div>
+            {% if user.is_authenticated %}
+                <div class="row align-items-center justify-content-center text-center col-12">
+                    <h2>
+                        <strong>{% dis_play "user_app-user" %} </strong>{{ user.get_username }} -
+                        <strong>{% dis_play "user_app-email" %} </strong>{{user.email }}
+                    </h2>
+                </div>
+            {% endif %}
+
+        <div class="row col-12">
+            {% include 'user_app/layouts/_user_nav.html' %}
+            <div class="col-10 align-items-center justify-content-center text-center">
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    {% if userform.non_field_errors %}
+                        <p class="error">
+                            <ul class="errorlist nonfield">
+                                <li>{% dis_play  userform.non_field_errors|get_error_msg %}</li>
+                            </ul>
+                        </p>
+                    {% endif %}
+                    <p>
+                        {% dis_play "user_app-login-text3" %}<br>
+                        {{ userform.email }}
+                    </p>
+                    <p>
+                        {% dis_play "user_app-login-text4" %}<br>
+                        {{ userform.password }}
+                    </p>
+                        {{  userform.connexion_creation }}
+                    <div class="row justify-content-around custom-line">
+                        <div class="col-6 ">
+                            {% if user.is_authenticated %}
+                                <input type="submit" class="btn btn-secondary btn_connexion" name="connexion"
+                                       value='{% dis_play "user_app-login-button1" %}' disabled>
+                            {% else %}
+                                <input type="submit" class="btn btn-secondary btn_connexion" name="connexion"
+                                       value='{% dis_play "user_app-login-button1" %}'>
+                            {% endif %}
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+
+    {% include 'layouts/partials/_back.html' %}
+    </div>
+</header>
+{% endblock body_block %}

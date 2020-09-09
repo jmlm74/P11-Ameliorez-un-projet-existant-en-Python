@@ -5,18 +5,18 @@
 <header class="my_body">
     <div class="container">
         <div class="alert alert-danger" role="alert">
-            <p>{% autoescape off %}{% dis_play "user_app-initdb-text1"%}{% endautoescape %}</p>
-            <p>{% dis_play "user_app-initdb-text2"%}</p>
+            <p>{% autoescape off %}{% dis_play "products_app-initdb-text1"%}{% endautoescape %}</p>
+            <p>{% dis_play "products_app-initdb-text2"%}</p>
         </div>
-        <h5>{% dis_play "user_app-initdb-text3"%}</h5>
+        <h5>{% dis_play "products_app-initdb-text3"%}</h5>
         <form action="" method="post">
             {% csrf_token %}
-            <input type="submit" value="{% dis_play "user_app-initdb-button1"%}" class="btn btn-danger">
+            <input type="submit" value="{% dis_play "products_app-initdb-button1"%}" class="btn btn-danger">
         </form>
         <hr />
         <div class="row justify-content-center">
             <a href="{% url 'home_app:index' %}"><input type="button" class="btn btn-primary"
-                                                        value="{% dis_play "user_app-initdb-button2"%}" /></a>
+                                                        value="{% dis_play "products_app-initdb-button2"%}" /></a>
         </div>
     </div>
 </header>

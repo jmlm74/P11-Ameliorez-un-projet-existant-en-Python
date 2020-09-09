@@ -18,6 +18,7 @@ sentry_sdk.init(
 DEBUG = False
 TEMPLATE_DEBUG = False
 
+PRODUCTION = True
 # disable django debug toolbar
 INTERNAL_IPS = []
 

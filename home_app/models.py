@@ -24,5 +24,5 @@ class Translation(TimeStampedModel):
             text_dict = Translation.objects.values(language).get(Position=position)
             text = text_dict[language]
         except ObjectDoesNotExist:
-            text = f"Error {position} position Not found!!!!"
+            text = f"Error -{position}- Not found!!!!"
         return text

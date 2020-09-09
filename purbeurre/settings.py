@@ -33,6 +33,8 @@ STATIC_DIR2 = BASE_DIR + '/static'
 # ASSETS_DIR = os.path.join(BASE_DIR, 'assets')
 MEDIA_DIR = os.path.join(BASE_DIR, 'media')
 
+PRODUCTION = False
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
@@ -176,9 +178,10 @@ if DEBUG:
         '127.0.0.1',
         # ...
     ]
+    # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 else:
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
     MIDDLEWARE += ['whitenoise.middleware.WhiteNoiseMiddleware']
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
-
+MAILGUN_KEY = get_env_variable("MAILGUN_KEY", "")

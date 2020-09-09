@@ -6,61 +6,61 @@
     <div class="container">
         {% if item %}
         <div class="row align-items-center justify-content-center text-center col-12 my_title">
-            <h2 class="my_title">{% dis_play "user_app-search-text1" %} {{ item }}</h2>
+            <h2 class="my_title">{% dis_play "products_app-search-text1" %} {{ item }}</h2>
         </div>
         {% endif %}
         {% if search_return == "0" %}
         {# Undefined error during the search #}
         <div class="row align-items-center justify-content-center text-center col-12 my_title">
-            <h2>{% dis_play "user_app-search-text2" %}</h2>
+            <h2>{% dis_play "products_app-search-text2" %}</h2>
             <div class="row align-items-center justify-content-center text-center col-12">
                 <a href="{% url 'home_app:index' %}" class="btn btn-secondary " name="no">
-                    {% dis_play "user_app-search-button1" %}</a>
+                    {% dis_play "products_app-search-button1" %}</a>
             </div>
         </div>
         {% elif search_return == "4" %}
         {# Unauthenticated user is not authorized --> the 404 is not clear enough #}
             <div class="row align-items-center justify-content-center text-center col-12 my_title">
-                <h2>{% dis_play "user_app-search-text3" %}</h2>
-                <h5>{% dis_play "user_app-search-text4" %}</h5>
-                <h5>{% dis_play "user_app-search-text5" %}</h5>
+                <h2>{% dis_play "products_app-search-text3" %}</h2>
+                <h5>{% dis_play "products_app-search-text4" %}</h5>
+                <h5>{% dis_play "products_app-search-text5" %}</h5>
             </div>
             <div class="row align-items-center justify-content-center text-center col-12">
                 <div class="col-6 ">
                     <a href="{% url 'user_app:user' %}" class="btn btn-primary " name="yes">
-                        {% dis_play "user_app-search-button2" %}</a>
+                        {% dis_play "products_app-search-button2" %}</a>
                 </div>
                 <div class="col-6">
                     <a href="{% url 'home_app:index' %}" class="btn btn-secondary " name="no">
-                        {% dis_play "user_app-search-button1" %}</a>
+                        {% dis_play "products_app-search-button1" %}</a>
                 </div>
             </div>
         {% elif search_return == "1" %}
         {# no product found #}
             <div class="row align-items-center justify-content-center text-center col-12 my_title">
-                <p><h3>{% dis_play "user_app-search-text6" %}</h3>
-                <h5>{% dis_play "user_app-search-text7" %}</h5>
-                <h5>{% dis_play "user_app-search-text8" %}</h5></p>
-                <h5>{% dis_play "user_app-search-text9" %}</h5>
+                <p><h3>{% dis_play "products_app-search-text6" %}</h3>
+                <h5>{% dis_play "products_app-search-text7" %}</h5>
+                <h5>{% dis_play "products_app-search-text8" %}</h5></p>
+                <h5>{% dis_play "products_app-search-text9" %}</h5>
             </div>
             <div class="row align-items-center justify-content-center text-center col-12">
                 <div class="col-6 ">
                     <form action="" method="POST">
                         {% csrf_token %}
                         <input type="submit" class="btn btn-primary btn_yes" name="yes" value=
-                                {% dis_play "user_app-search-button3" %}>
+                                {% dis_play "products_app-search-button3" %}>
                     </form>
                 </div>
                 <div class="col-6">
                     <a href="{% url 'home_app:index' %}" class="btn btn-secondary btn_no" name="no">
-                        {% dis_play "user_app-search-button1" %}</a></a>
+                        {% dis_play "products_app-search-button1" %}</a></a>
                 </div>
             </div>
         {% elif search_return == "2" %}
         {# several products found ! Choose one ! #}
         <div class="row align-items-center justify-content-center text-center col-12 my_title">
-            <h3>{% dis_play "user_app-search-text10" %}</h3>
-            <h5>{% dis_play "user_app-search-text11" %}</h5>
+            <h3>{% dis_play "products_app-search-text10" %}</h3>
+            <h5>{% dis_play "products_app-search-text11" %}</h5>
         </div>
         <section class="col-12">
             <div class="row equal align-items-end">

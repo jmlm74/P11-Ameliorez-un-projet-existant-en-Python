@@ -18,8 +18,8 @@
                     </h5>
                 </div>
                 <div>
-                    <h5>{% dis_play "user_app-detail-view-text1" %} <strong>{{ product.brand | title }}</strong> -
-                        {% dis_play "user_app-detail-view-text2" %} {{ product.code }}
+                    <h5>{% dis_play "products_app-detail-view-text1" %} <strong>{{ product.brand | title }}</strong> -
+                        {% dis_play "products_app-detail-view-text2" %} {{ product.code }}
                     </h5>
                 </div>
                 </section>
@@ -29,19 +29,19 @@
         <div class="row col-12">
             <div class="col-sm-4 col12 ">
                 <div class="col-12">
-                    <h5 class="text-center"><strong>{% dis_play "user_app-detail-view-text3" %}</strong></h5>
+                    <h5 class="text-center"><strong>{% dis_play "products_app-detail-view-text3" %}</strong></h5>
                     <div class="row">
                     {% for k,v in nutrient_levels.items %}
                         <span class="col-1">
                             <img src="{{ baseUrl }}{{ appname }}/img/circle-{{v.0}}.png" />
                         </span>
-                        <span class="col-10">{{k}} -  {{v.1}}</span>
+                        <span class="col-10">{% dis_play k %} -  {% dis_play v.1 %}</span>
                     {% endfor %}
                     </div>
                 </div>
             </div>
             <div class="col-sm-4 col-12">
-                <h5 class="text-center"><strong>{% dis_play "user_app-detail-view-text4" %}</strong></h5>
+                <h5 class="text-center"><strong>{% dis_play "products_app-detail-view-text4" %}</strong></h5>
                 {% for cat in product.category.all %}
                 <div clas="row col-12">
                     - {{cat}}
@@ -49,7 +49,7 @@
                 {% endfor %}
             </div>
             <div class="col-sm-4 col-12">
-                <h5 class="text-center"><strong>{% dis_play "user_app-detail-view-text5" %}</strong></h5>
+                <h5 class="text-center"><strong>{% dis_play "products_app-detail-view-text5" %}</strong></h5>
                 {% for store in product.store.all %}
                 <div clas="row col-12">
                     - {{store | title}}
@@ -68,7 +68,7 @@
                         {% plus bookmark_seen 1 as bookmark_seen %}
                         <hr />
                         <div class="row align-items-center justify-content-center text-center col-12">
-                            <h5><strong>{% dis_play "user_app-detail-view-text6" %}</strong></h5>
+                            <h5><strong>{% dis_play "products_app-detail-view-text6" %}</strong></h5>
                         </div>
                         <div class="row col-12">
                     {% endif %}
@@ -93,8 +93,8 @@
         {% endif %}
         <hr />
         <div class='row  justify-content-center col-12'>
-            <span>{% autoescape off %}{% dis_play "user_app-detail-view-text7" %} {% endautoescape %}
-                <a href="{{product.product_url}}" target="_blank"> {% dis_play "user_app-detail-view-text8" %}</a></span>
+            <span>{% autoescape off %}{% dis_play "products_app-detail-view-text7" %} {% endautoescape %}
+                <a href="{{product.product_url}}" target="_blank"> {% dis_play "products_app-detail-view-text8" %}</a></span>
 
         </div>
         {% include 'layouts/partials/_back.html' %}

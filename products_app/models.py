@@ -74,10 +74,10 @@ class Product(TimeStampedModel):
     """
 
     class nutrient_levels(models.TextChoices):
-        HIGH = "H", "Elevé"
-        MODERATE = "M", "Modéré"
-        LOW = "L", "Bas"
-        UNKNOWN = "U", "Inconnu"
+        HIGH = "H", "high"
+        MODERATE = "M", "moderate"
+        LOW = "L", "low"
+        UNKNOWN = "U", "unknown"
 
     pname = models.CharField(max_length=150, verbose_name="product name", unique=True)
     code = models.CharField(max_length=20, verbose_name="Barcode", unique=True)
@@ -122,7 +122,7 @@ class Product(TimeStampedModel):
         return {'salt': [self.salt, self.get_salt_display()],
                 'sugar': [self.sugar, self.get_sugar_display()],
                 'fat': [self.fat, self.get_fat_display()],
-                'satured_fat': [self.saturated_fat, self.get_saturated_fat_display()],
+                'sfat': [self.saturated_fat, self.get_saturated_fat_display()],
                 }
 
     @classmethod

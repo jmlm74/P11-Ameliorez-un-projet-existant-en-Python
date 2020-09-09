@@ -19,11 +19,11 @@ class UserPurBeurreForm(forms.ModelForm):
     """
     password = forms.CharField(widget=forms.PasswordInput(), label="Mot de passe")
     confirm_password = forms.CharField(widget=forms.PasswordInput(
-                                       attrs={'placeholder': 'Seulement pour création'}
-                                       ),
-                                       required=False,
-                                       label="Confirmation",
-                                       )
+        #                                   attrs={'placeholder': 'Seulement pour création'}
+    ),
+        required=False,
+        label="Confirmation",
+    )
     connexion_creation = forms.CharField(required=False, widget=forms.HiddenInput())
 
     class Meta:

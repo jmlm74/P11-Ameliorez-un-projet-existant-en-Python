@@ -16,9 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
+from django.views.generic import RedirectView
+from django.contrib.auth import views as auth_views
 
 from home_app import views as hav
-from home_app import errors as err
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,6 +29,11 @@ urlpatterns = [
     path('products_app/', include('products_app.urls')),
     path('', hav.index, name='index'),
     path('autocomplete_search/', hav.autocomplete_search, name='autocomplete_search'),
+    path('accounts/login/', RedirectView.as_view(url='/user_app/login')),
+    path('reset/done/',
+         auth_views.PasswordResetCompleteView.as_view(template_name='registration/reset_password_complete.html'),
+         name='password_reset_complete'),
+
 ]
 
 handler400 = 'home_app.errors.handler400'
