@@ -1,0 +1,104 @@
+Creating test database for alias 'default'...
+................................EE.
+======================================================================
+ERROR: test_view_search_sustitute_got_no_product (products_app.test.test_views.TestViewSearchSubstitute)
+Verify if no substitute found --> message no substitute
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jmlm/1-OpenClassrooms/3 - Projets/11 - Ameliorez un projet existant en Python/purbeurre/products_app/test/test_views.py", line 171, in test_view_search_sustitute_got_no_product
+    response = self.client.get(reverse("products_app:search_substitute"))
+  File "/home/jmlm/envs/wenvP11/lib/python3.8/site-packages/django/test/client.py", line 732, in get
+    response = super().get(path, data=data, secure=secure, **extra)
+  File "/home/jmlm/envs/wenvP11/lib/python3.8/site-packages/django/test/client.py", line 393, in get
+    return self.generic('GET', path, secure=secure, **{
+  File "/home/jmlm/envs/wenvP11/lib/python3.8/site-packages/django/test/client.py", line 470, in generic
+    return self.request(**r)
+  File "/home/jmlm/envs/wenvP11/lib/python3.8/site-packages/django/test/client.py", line 709, in request
+    self.check_exception(response)
+  File "/home/jmlm/envs/wenvP11/lib/python3.8/site-packages/django/test/client.py", line 571, in check_exception
+    raise exc_value
+  File "/home/jmlm/envs/wenvP11/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/jmlm/envs/wenvP11/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/jmlm/1-OpenClassrooms/3 - Projets/11 - Ameliorez un projet existant en Python/purbeurre/products_app/views.py", line 115, in search_substitute_view
+    substitutes = subst.search_substitute(prod_to_search)
+  File "/home/jmlm/1-OpenClassrooms/3 - Projets/11 - Ameliorez un projet existant en Python/purbeurre/products_app/substitutes.py", line 18, in search_substitute
+    cats = Category.objects.get(products__pname=prod_selected.pname).order_by('-nb_prod')
+AttributeError: 'Category' object has no attribute 'order_by'
+
+======================================================================
+ERROR: test_view_search_sustitute_got_product (products_app.test.test_views.TestViewSearchSubstitute)
+Verify search_substitue return at least 1 product and display it
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jmlm/1-OpenClassrooms/3 - Projets/11 - Ameliorez un projet existant en Python/purbeurre/products_app/test/test_views.py", line 157, in test_view_search_sustitute_got_product
+    response = self.client.get(reverse("products_app:search_substitute"))
+  File "/home/jmlm/envs/wenvP11/lib/python3.8/site-packages/django/test/client.py", line 732, in get
+    response = super().get(path, data=data, secure=secure, **extra)
+  File "/home/jmlm/envs/wenvP11/lib/python3.8/site-packages/django/test/client.py", line 393, in get
+    return self.generic('GET', path, secure=secure, **{
+  File "/home/jmlm/envs/wenvP11/lib/python3.8/site-packages/django/test/client.py", line 470, in generic
+    return self.request(**r)
+  File "/home/jmlm/envs/wenvP11/lib/python3.8/site-packages/django/test/client.py", line 709, in request
+    self.check_exception(response)
+  File "/home/jmlm/envs/wenvP11/lib/python3.8/site-packages/django/test/client.py", line 571, in check_exception
+    raise exc_value
+  File "/home/jmlm/envs/wenvP11/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/jmlm/envs/wenvP11/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/jmlm/1-OpenClassrooms/3 - Projets/11 - Ameliorez un projet existant en Python/purbeurre/products_app/views.py", line 115, in search_substitute_view
+    substitutes = subst.search_substitute(prod_to_search)
+  File "/home/jmlm/1-OpenClassrooms/3 - Projets/11 - Ameliorez un projet existant en Python/purbeurre/products_app/substitutes.py", line 18, in search_substitute
+    cats = Category.objects.get(products__pname=prod_selected.pname).order_by('-nb_prod')
+  File "/home/jmlm/envs/wenvP11/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/jmlm/envs/wenvP11/lib/python3.8/site-packages/django/db/models/query.py", line 433, in get
+    raise self.model.MultipleObjectsReturned(
+products_app.models.Category.MultipleObjectsReturned: get() returned more than one Category -- it returned 2!
+
+----------------------------------------------------------------------
+Ran 35 tests in 115.611s
+
+FAILED (errors=2)
+Destroying test database for alias 'default'...
+System check identified no issues (0 silenced).
+test_homeapp_index_is_ok
+test_index_is_ok
+test_mentions_id_ok
+test_url_detail_is_ok
+test_url_initdb_is_ok
+test_url_list_bookmarks_is_ok
+test_url_save_bookmark_is_ok
+test_url_search_is_ok
+test_url_search_substitute_is_ok
+test_user_connection
+Connection of foobar
+test_user_creation
+Register new user : toto - toto@tutu.com
+test_user_disconnection
+test_bad_address_returns_handler404
+Erreur 404 - {'tried': [[<URLResolver <URLPattern list> (admin:admin) 'admin/'>], [<URLResolver <module 'home_app.urls' from '/home/jmlm/1-OpenClassrooms/3 - Projets/11 - Ameliorez un projet existant en Python/purbeurre/home_app/urls.py'> (home_app:home_app) 'home_app/'>], [<URLResolver <module 'user_app.urls' from '/home/jmlm/1-OpenClassrooms/3 - Projets/11 - Ameliorez un projet existant en Python/purbeurre/user_app/urls.py'> (user_app:user_app) 'user_app/'>], [<URLResolver <module 'products_app.urls' from '/home/jmlm/1-OpenClassrooms/3 - Projets/11 - Ameliorez un projet existant en Python/purbeurre/products_app/urls.py'> (products_app:products_app) 'products_app/'>], [<URLPattern '' [name='index']>], [<URLPattern 'autocomplete_search/' [name='autocomplete_search']>]], 'path': 'test'}
+test_click_icon_person_to_user
+test_click_mentions
+test_initdb
+test_method_create_bookmark_ok
+test_method_nutrient_levels_returns_good_value
+test_method_search_product_return_3_products
+test_method_search_product_return_empty_dict
+test_method_search_product_return_one_product
+test_view_bookmark_list_view_1ormore_bookmark
+test_view_bookmark_list_view_no_bookmark
+test_view_init_DB_view_get
+test_view_product_Detail_View
+test_view_save_bookmark_KO
+test_view_save_bookmark_OK
+test_view_search_with_1_product_redirect_search_substitute
+test_view_search_with_more_than_1_product_propose_substitutes
+test_view_search_with_no_product_found
+test_view_search_sustitute_got_no_product
+Erreur 500 - None
+test_view_search_sustitute_got_product
+Erreur 500 - None
+test_view_search_no_auth_user_return_errorpage

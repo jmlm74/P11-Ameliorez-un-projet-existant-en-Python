@@ -1,49 +1,51 @@
-# P10 - Déployez !
+# P10 - Améliorez !
 
-# P10 du parcours DA Python d'OpenClassRoom
+# P11 du parcours DA Python d'OpenClassRoom
 
-## Déployez votre application sur un serveur comme un pro !
+## Améliorez un projet existant en Python
 
-Jusqu’à maintenant, vous avez déployé vos applications en utilisant Heroku. C’est bien ! Mais la plupart des sociétés n’utilisent pas Heroku, pas par mépris pour cette belle entreprise mais plutôt car elles préfèrent gérer elles-mêmes leur déploiement.  
-  
-Il s’agit d’une étape très importante dans la vie d’un projet ! Allez, c’est parti !  
+“ô rage ! ô désespoir ! ô vieillesse ennemie ! N’ai-je donc tant vécu que pour cette infamie ?” vous exclamez-vous en 
+découvrant dans votre boîte mail un message de votre dernier client, pourtant si content lors de la dernière mise 
+en production.  
 
+> “Bonjour,  
+> Je vous remercie pour le travail réalisé. Néanmoins nous avons découvert qu’il manquait une fonctionnalité 
+> importante que nous aimerions développer. Combien de temps cela vous prendrait-il ?  
+> Nous avons également remarqué des dysfonctionnements (rien n’apparaît lorsque nous lançons Internet Explorer).  
+> Nos développeurs ont essayé de résoudre les bugs mais en vain, apparemment. Ils viennent de me dire de vous contacter 
+> car les tests sont cassés (je ne sais pas ce que cela signifie mais je transmets) et menacent la production (ça, 
+> j'ai bien compris - ils ont travaillé directement sur le site en ligne !).  
+>  
+> C’est tout pour aujourd’hui.
+>  
+> Merci.  
+> Cordialement,
+>    
+> Dona Jimena”  
+
+Évidemment, vous allez corriger… Car, comme diraient les Shadoks, s’il n’y a pas de solution, c’est qu’il n’y a pas de 
+problème. Allez, c’est parti !
 
 ### Étapes  
-#### 1 - Simuler un serveur de production en local  
-Avant de mettre en ligne un projet, il est de bon ton de lancer un serveur en local pour s’assurer que tout se passe bien.  
-[Incassable, incassable !](https://www.youtube.com/watch?v=85E1YY-P7_g&t=0m38s)  
-
-Vous souvenez-vous des avantages de l’intégration continue ? Entre autre, cette méthodologie vous permet d’intégrer de nouvelles fonctionnalités à un projet en courant le moins de risques possibles. Les tests que vous avez écrits sont exécutés à chaque nouveau push. Si les tests échouent, une alerte s’affiche et rien n’est déployé.  
-
-Il existe de nombreux outils d’intégration continue mais mon chouchou, je dois bien l’avouer, est Travis (suivez le guide ). Pas à cause de son petit nom, de ses moustaches affriolantes ou de son chapeau si hipster (quoique…), mais plutôt en raison de sa simplicité.  
-
-Néanmoins, sachez que vous pouvez utiliser l’outil qui vous sied le mieux.  
-
-#### 2 - Déploiement   
-Tous vos tests sont verts et le build fonctionne ? Parfait ! Maintenant, déployez votre application en utilisant l’hébergeur que vous souhaitez. Vous devez configurer le serveur et effectuer un déploiement en ligne de console. N’utilisez pas Heroku ;-)  
-
-#### 3 - Monitoring  
-Votre application est en ligne. Bravo ! Mais que se passe-t-il si le serveur tombe en panne ? Utilisez Sentry pour lire tous les logs et NewRelic pour surveiller le bon fonctionnement de votre application.  
-
-#### 4 - Automatisations  
-Créez une tâche Cron qui mettra à jour les éléments récupérés d’Open Food Facts une fois par semaine.  
-
-#### 5 - Nom de domaine  
-Dernière étape (optionnelle) ! Achetez un nom de domaine et reliez-le à vos serveurs. 
+#### Fonctionnalités  
+Basez-vous sur l’un des projets que vous avez déjà réalisés dans ce parcours de formation ou dans votre carrière. 
+Choisissez une fonctionnalité à ajouter. Elle doit être assez importante pour justifier des tests fonctionnels. Votre 
+mentor jouera le rôle du client. Jouez le jeu et communiquez avec lui de la même manière que vous le feriez avec 
+un client : soignez votre présentation, l’endroit où se déroule votre session de mentorat et l’orthographe dans vos 
+e-mails !  
+Quant aux tests, cassez-en un puis réparez-le en le refactorant. Je suis sûre que vous avez un test caché quelque part 
+qui mérite une nouvelle jeunesse !    
 
 ## Livrables  
-[Démarche](/Livrables/P10_01_demarche.pdf) - Démarche  
-[Crontab](/Livrables/P10_02_crontab.png) - Crontab  
-[Monitoring](/Livrables/P10_03_Monitoring.png) - Monitoring  
-[Monitoring](/Livrables/P10_04_Monitoring.png) - monitoring  
-[Monitoring - Alertes](/Livrables/P10_05_Monitoring-Alert.png) - Alertes  
-[Travis-CI](/Livrables/P10_06_Travis-CI.png) - Travis-CI  
-[Sentry](/Livrables/P10_07_Sentry.png) - Sentry  
-[Init_db](/Livrables/P10_08_initdb.png) - Initialisation BdD  
-[Docker-Hub](/Livrables/P10_09_Docker.png) - Dashboard Docker-Hub  
-[Docker_maj](/Livrables/P10_10_Docker_maj1.png) - Mise a jour conteneurs docker  
-[Monitor.sh](/Livrables/P10_12_monitor.sh) - Monitoring services (script)  
+[Démarche](/Livrables/P11_01_demarche.pdf) - Démarche    
+[mail_1](/Livrables/P11_02_mail_1.pdf) - Mail sur bug  
+[mail_2](/Livrables/P11_03_mail_2.pdf) - Mail sur correction bug  
+[mail_3](/Livrables/P11_04_mail_3.pdf) - Mail sur fonctionnalités  
+[mail_4](/Livrables/P11_05_mail_4.pdf) - Mail sur livraison   fonctionnalités  
+[Erreur Bug](/Livrables/P11_06_Erreur500.png) - Printscreen Erreur Bug  
+[Test KO](/Livrables/P11_07_test_error.out) - Sortie tests KO suite bug    
+[Test OK](/Livrables/P11_08_test_ok.out) - Sortie tests OK suite correction bug  
+[Test OK bis](/Livrables/P11_08bis_test_ok.out) - Printscreen tests OK suite correction bug      
 [Présentation](/Livrables/presentation.pdf) - Présentation  
 
 [Application](https://purbeurre.jm-hayons74.fr/) - Application
