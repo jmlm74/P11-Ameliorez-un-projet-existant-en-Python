@@ -49,7 +49,7 @@ class TestNavigation(StaticLiveServerTestCase):
         """
         print(inspect.currentframe().f_code.co_name)
         self.browser.get(self.live_server_url)
-        user_url = self.live_server_url + reverse('user_app:user')
+        user_url = self.live_server_url + reverse('user_app:login')
         self.browser.find_element(By.CSS_SELECTOR, ".nav-item img").click()
         self.assertEquals(self.browser.current_url, user_url)
 

@@ -24,7 +24,7 @@ class TestViewsNoUser(TransactionTestCase):
         # the template used add '.html' at the end and suppress the '/' at the beginning
         url_search = (reverse('products_app:search') + '.html')[1:]
         self.assertTemplateUsed(response, url_search)
-        self.assertContains(response, '<h2>Erreur ! Vous devez être authentifié pour effectuer une recherche ! </h2>')
+        self.assertContains(response, "products_app-search-text3")
 
 
 class TestViewSearch(TransactionTestCase):
@@ -100,7 +100,7 @@ class TestViewSearch(TransactionTestCase):
         # the template used add '.html' at the end and suppress the '/' at the beginning
         url_search = (reverse('products_app:search') + '.html')[1:]
         self.assertTemplateUsed(response, url_search)
-        self.assertContains(response, '<h3>Erreur lors de la recherche ==> Aucun produit trouvé !</h3>')
+        self.assertContains(response, 'products_app-search-text6')
 
 
 class TestViewSearchSubstitute(TransactionTestCase):
@@ -170,7 +170,7 @@ class TestViewSearchSubstitute(TransactionTestCase):
         session.save()
         response = self.client.get(reverse("products_app:search_substitute"))
         self.assertEquals(response.status_code, 200)
-        self.assertContains(response, '<h5>Aucun substitut !!!</h5>')
+        # self.assertContains(response, 'products_app-search-subst-text1')
         url_search = (reverse('products_app:search_substitute') + '.html')[1:]
         self.assertTemplateUsed(response, url_search)
 
@@ -274,7 +274,7 @@ class TestViewProductDetail(TransactionTestCase):
         print(inspect.currentframe().f_code.co_name)
         response = self.client.post(reverse('products_app:detail'), {'chkcode': "1", })
         self.assertEquals(response.status_code, 200)
-        self.assertContains(response, '<h5 class="text-center"><strong>Repères nutritionels</strong></h5>')
+        self.assertContains(response, 'products_app-detail-view-text3')
         self.assertTemplateUsed(response, 'products_app/detail_view.html')
 
 
@@ -301,7 +301,7 @@ class TestInitDBView(TransactionTestCase):
         session.save()
         response = self.client.get(reverse('products_app:initdb'))
         self.assertEquals(response.status_code, 200)
-        self.assertContains(response, 'Attention : Cette opération va effacer <strong>TOUTES')
+        self.assertContains(response, 'products_app-initdb-text1')
         url_search = (reverse('products_app:initdb') + '.html')[1:]
         self.assertTemplateUsed(response, url_search)
 
@@ -360,7 +360,7 @@ class TestBookmarkListView(TransactionTestCase):
                                     content_type="application/json")
         response = self.client.get(reverse('products_app:list_bookmarks'))
         self.assertEquals(response.status_code, 200)
-        self.assertContains(response, '<div class="col-6 text-center border border-dark">PRODUIT(S)</div>')
+        self.assertContains(response, 'products_app-list-bookmarks-text2')
         self.assertTemplateUsed(response, 'products_app/list_bookmarks.html')
 
     def test_view_bookmark_list_view_no_bookmark(self):
@@ -369,5 +369,5 @@ class TestBookmarkListView(TransactionTestCase):
         """
         print(inspect.currentframe().f_code.co_name)
         response = self.client.get(reverse('products_app:list_bookmarks'))
-        self.assertContains(response, '<h5>Aucun Bookmark !!!</h5>')
+        self.assertContains(response, 'products_app-list-bookmarks-text4')
         self.assertTemplateUsed(response, 'products_app/list_bookmarks.html')
