@@ -42,6 +42,7 @@
                     </li>
                     <p class="text">{%  dis_play "purbeurre-nav-text4" %}</p>
                     </div>
+                    {% comment %}
                     <div id="language">
                         <li class="nav-item lang FR">
                             <a href="{% url 'index' %}"><img src="{% static 'img/FRmini.jpg' %}" alt="Francais"></a>
@@ -50,6 +51,17 @@
                     <div id="language">
                         <li class="nav-item lang UK">
                             <a href="{% url 'index' %}"><img src="{% static 'img/UKmini.jpg' %}" alt="English"></a>
+                        </li>
+                    </div>
+                    {% endcomment %}
+                    <div id="language">
+                        <li class="nav-item lang FR">
+                           <img src="{% static 'img/FRmini.jpg' %}" alt="Francais">
+                        </li>
+                    </div>
+                    <div id="language">
+                        <li class="nav-item lang UK">
+                            <img src="{% static 'img/UKmini.jpg' %}" alt="English">
                         </li>
                     </div>
                 </ul>

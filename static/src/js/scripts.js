@@ -85,7 +85,16 @@
     }
 
     data = JSON.stringify(data);
-    SendAjax('POST','/home_app/set_language/',data);
+    SendAjax('POST','/home_app/set_language/',data)
+    .done( function(response) {
+      var origin   = window.location.origin;
+      window.location.href = origin
+      })
+      .fail( function(response) {
+          console.error("Erreur Ajax : " + response.data);
+          alert("Erreur Ajax - "+ response.data);
+      });
+
 
   });
 
