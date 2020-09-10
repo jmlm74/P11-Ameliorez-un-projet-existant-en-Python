@@ -1,14 +1,16 @@
 $(function() {
-    console.log("loaded");
+    console.log("loaded !!");
     $('.floppy-green').parent().prop('title','Bookmark this product')
     $('.floppy-red').parent().prop('title','Already Bookmarked - Click to remove');
 
     $('.fa-save').click(function(e){
         let data = {};
+        console.log("Vu")
         if ($(this).hasClass('floppy-green')){
             data['action'] = "add"
             $(this).parent().prop('title','Already Bookmarked - Click to remove');
         } else {
+            console.log("coucou")
             data['action'] = "remove"
             $(this).parent().prop('title','Bookmark this product');
         }
