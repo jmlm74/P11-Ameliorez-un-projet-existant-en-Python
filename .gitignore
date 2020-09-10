@@ -8,3 +8,4 @@ api_key.txt
 .idea
 staticfiles
 static/node_modules
+dist/src
