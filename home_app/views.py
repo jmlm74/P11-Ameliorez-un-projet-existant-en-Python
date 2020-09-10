@@ -52,6 +52,11 @@ def test_error(request):
 
 @csrf_exempt
 def set_language(request):
+    """
+        Ajax function to set the session variable for the language
+        Args : The request
+        Returns : OK --> don't mind
+    """
     if request.method == 'POST':
         request_data = json.loads(request.read().decode('utf-8'))
         language = str(request_data['language'])

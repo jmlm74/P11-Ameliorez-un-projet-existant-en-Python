@@ -38,14 +38,14 @@ qui mérite une nouvelle jeunesse !
 
 ## Livrables  
 [Démarche](/Livrables/P11_01_demarche.pdf) - Démarche    
-[mail_1](/Livrables/P11_02_mail_1.pdf) - Mail sur bug  
-[mail_2](/Livrables/P11_03_mail_2.pdf) - Mail sur correction bug  
-[mail_3](/Livrables/P11_04_mail_3.pdf) - Mail sur fonctionnalités  
-[mail_4](/Livrables/P11_05_mail_4.pdf) - Mail sur livraison   fonctionnalités  
+[mail_1](/Livrables/P11_02_Mail_1.pdf) - Mail sur bug  
+[mail_2](/Livrables/P11_03_Mail_2.pdf) - Mail sur correction bug  
+[mail_3](/Livrables/P11_04_Mail_3.pdf) - Mail sur fonctionnalités  
+[mail_4](/Livrables/P11_05_Mail_4.pdf) - Mail sur livraison   fonctionnalités  
 [Erreur Bug](/Livrables/P11_06_Erreur500.png) - Printscreen Erreur Bug  
 [Test KO](/Livrables/P11_07_test_error.out) - Sortie tests KO suite bug    
 [Test OK](/Livrables/P11_08_test_ok.out) - Sortie tests OK suite correction bug  
-[Test OK bis](/Livrables/P11_08bis_test_ok.out) - Printscreen tests OK suite correction bug      
+[Test OK bis](/Livrables/P11_08bis_test_ok.png) - Printscreen tests OK suite correction bug      
 [Présentation](/Livrables/presentation.pdf) - Présentation  
 
 [Application](https://purbeurre.jm-hayons74.fr/) - Application

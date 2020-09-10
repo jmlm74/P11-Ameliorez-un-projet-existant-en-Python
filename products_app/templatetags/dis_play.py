@@ -13,6 +13,14 @@ used in detail_view
 
 @register.simple_tag(takes_context=True)
 def dis_play(context, value):
+    """
+        Template tag to display datas from translation modele
+        Args :
+            Context --> use to get session data
+            Value --> key for the translation modele
+        Return:
+              Field from Translation modele --> language (FR, UK..)
+    """
     try:
         language = context.request.session['language']
     except KeyError:
@@ -22,12 +30,19 @@ def dis_play(context, value):
 
 @register.filter
 def get_error_msg(value):
+    """
+        Filter to remove all the tags of an error message to get the message
+        remove also some specials chars
+        Args :
+            The complete error message
+        Return:
+            The message to be displayed
+    """
     value = str(value)
-    print(value)
     pattern = "<li>(.*?)</li>"
-    print(value)
     try:
-        newvalue = re.search(pattern, value).group(1)
+        value = re.search(pattern, value).group(1)
     except AttributeError:
-        newvalue = re.search(pattern, value)
-    return newvalue
+        value = re.search(pattern, value)
+    value = re.sub("’", ' ', value)
+    return value

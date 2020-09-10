@@ -27,7 +27,7 @@ def search_view(request):
             substitute page with this product
         - 1 product found --> just go to the substitute page with the found product
     """
-    context = {'title': 'user_app-search-title'}
+    context = {'title': 'products_app-search-title'}
     if not request.user.is_authenticated:
         # user not authenticated --> not a 404 but a message !
         context['search_return'] = "4"
@@ -106,7 +106,7 @@ def search_substitute_view(request):
 
     render the search_substitute.html template
     """
-    context = {}
+    context = {'title': 'products_app-search-subst-title', }
     if request.method == 'POST':
         pass
     else:
@@ -125,7 +125,6 @@ def search_substitute_view(request):
             page_obj = paginate(substitutes, page_number)
             context['substitutes'] = page_obj
             context['list_bookmarks'] = list_code_bookmarks
-        context['title'] = 'user_app-search-subst-title'
     return render(request, "products_app/search_substitute.html", context=context)
 
 @csrf_exempt
@@ -186,7 +185,7 @@ class ProductDetailView(DetailView):
         self.object = self.get_object()
         context = self.get_context_data()
         context['nutrient_levels'] = self.object.get_nutrient_levels
-        context['title'] = 'user_app-detail-view-title'
+        context['title'] = 'products_app-detail-view-title'
         return self.render_to_response(context=context)
 
 
@@ -209,13 +208,13 @@ class InitDBView(TemplateView):
 
     def get(self, request, *args, **kwargs):
         context = self.get_context_data()
-        context['title'] = 'user_app-initdb-title'
+        context['title'] = 'products_app-initdb-title'
         return self.render_to_response(context=context)
 
     @method_decorator(staff_member_required())
     def post(self, request, *args, **kwargs):
         context = self.get_context_data()
-        context['title'] = 'user_app-initdb-title'
+        context['title'] = 'products_app-initdb-title'
         task = threading.Thread(target=init_db, args=(True, ))
         task.start()
         return HttpResponseRedirect(reverse('home_app:index'))
@@ -237,7 +236,7 @@ class BookmarkListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'user_app-list-bookmarks-title'
+        context['title'] = 'products_app-list-bookmarks-title'
         return context
 
 

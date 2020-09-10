@@ -85,7 +85,8 @@ class Testchangepassword(TransactionTestCase):
         response = self.client.post(reverse('user_app:change_password'), {'old_password': 'foobar',
                                                                           'new_password1': 'afgt45tYl',
                                                                           'new_password2': 'afgt45tYl'})
-        self.assertEquals(response.status_code, 302)
+        self.assertEquals(response.status_code, 200)
+        self.assertContains(response, "Your password was successfully updated!")
         response = self.c.get(reverse('user_app:ulogout'))
         self.assertEquals(response.status_code, 302)
         response = self.c.post('/user_app/login', {'email': 'foobar@team.fr',

@@ -69,7 +69,7 @@ def user_login(request):
     Validate the form and then connect the user with "authenticate" method or
     create the new user with "create" method
     """
-    context = {}
+    context = {'title': "user_app-login-title"}
     if request.method == 'POST':
         userform = forms.UserPurBeurreForm(data=request.POST)
         if userform.is_valid():
@@ -101,7 +101,6 @@ def user_login(request):
             print("Error on creation/connection form : {userform.errors}")
     else:  # not post but HTTP REQUEST
         userform = forms.UserPurBeurreForm()
-    context['title'] = "user_app-login-title"
     context['userform'] = userform
     return render(request, 'registration/login.html', context=context)
 
@@ -114,16 +113,21 @@ def user_logout(request):
 
 @login_required
 def change_password(request):
+    """
+    Change password view
+    use the form PasswordChangeForm
+    The data validation is done by the form (Django form)
+    """
     context = {'title': 'user_app-change-psw-title'}
     if request.method == 'POST':
         form = PasswordChangeForm(request.user, request.POST)
         if form.is_valid():
             user = form.save()
             update_session_auth_hash(request, user)  # Important!
-            messages.success(request, 'Your password was successfully updated!')
-            return redirect('user_app:change_password')
+            context['success'] = 'Your password was successfully updated!'
+            # return redirect('user_app:change_password')
         else:
-            messages.error(request, 'Please correct the error below.')
+            context['error'] = 'Error during password change !'
     else:
         form = PasswordChangeForm(request.user)
     context['form'] = form
@@ -131,15 +135,23 @@ def change_password(request):
 
 
 def reset_psw(request):
+    """
+    The reset password view (1st view)
+    use the PasswordResetForm form (django view)
+    The data validation is done by the standard view
+    The mail is sent with the MAILGUN API
+    """
     context = {'title': "user_app-reset-title"}
     language = request.session['language']
     if request.method == 'POST':
         form = PasswordResetForm(request.POST)
         if form.is_valid():
             clean_mail = form.cleaned_data['email']
+            # get the user
             users = User.objects.filter(Q(email=clean_mail))
             if users.exists():
                 for user in users:
+                    # build the mail
                     subject = Translation.get_translation("Password Reset Requested", language)
                     email_template_name = f"registration/reset_password_email_{language}.txt"
                     if not conf_settings.PRODUCTION:
@@ -158,8 +170,7 @@ def reset_psw(request):
                     }
                     email = render_to_string(email_template_name, c)
                     try:
-                        print(conf_settings.MAILGUN_KEY)
-                        print(clean_mail)
+                        # send mail
                         rc = requests.post("https://api.mailgun.net/v3/sandbox1f42285ff9e446fa9e90d34287cd8fee.mailgun.org/messages",
                                            auth=("api", conf_settings.MAILGUN_KEY),
                                            data={"from": "Pur Beurre <webmaster@jm-hayons74.fr>",
